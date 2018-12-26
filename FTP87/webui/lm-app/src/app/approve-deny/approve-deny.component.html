@@ -1,0 +1,50 @@
+<style>
+header {
+  background-color: rgb(9, 19, 124);
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+}
+.button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+form{
+  background-color: rgb(186, 218, 240);
+}
+</style>
+
+ <header>
+    <h2>APPROVE AND DENY</h2>
+  </header>
+  
+  <form align="center"> 
+    Employ ID :  {{ (employees  | async)?.empId }}    <br><br>
+    Employ Name :  {{ (employees  | async)?.empName }}<br><br>
+    Leave Balance : {{ (employees | async)?.empLeavbal }}<br><br>
+  
+    StartDate : {{ (leavedetails  | async)?.leavesdate }}<br><br>
+    EndDate : {{ (leavedetails  | async)?.leaveedate }}<br><br>
+    LeaveType : {{ (leavedetails  | async)?.leavetype }}<br><br>  
+    No Of Days : {{ (leavedetails  | async)?.leavendays }}<br><br>
+    Reason : {{ (leavedetails  | async)?.leavereason }}<br><br>
+    Comment:<textarea name="comment" [(ngModel)]="ld.leavemanagercomm" required></textarea><br><br>
+    <button (click)="approve()" class="button">Approve</button>&nbsp;&nbsp;
+    <button (click)="reject()" class="button">Deny</button>&nbsp;&nbsp;
+    <button (click)="cancel()" class="button">cancel</button>&nbsp;&nbsp;
+    <br/><br/>
+    <h3>Result : {{msg}}</h3>
+  </form>
+
+
+
+

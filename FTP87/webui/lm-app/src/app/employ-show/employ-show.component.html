@@ -1,0 +1,29 @@
+<style>
+    table{
+      font-family:Palatino Linotype;
+    
+    }
+    h1{
+      font-family:Palatino Linotype;
+    
+    }
+    </style>
+    
+    <h3 >
+      Employee Details
+    </h3>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <table  border=" 4" align="left" class="table table-striped">
+       <tr>Employ no <td >: {{ (employees | async)?.empId}}</td></tr>
+       <tr>Employ name<td>: {{ (employees | async)?.empName}}</td></tr>
+       <tr>Employ department<td>: {{ (employees | async)?.empDept}}</td></tr>
+      <tr>Employ email            <td>: {{ (employees | async)?.empEmail}}</td></tr>
+      <tr>Employ mobile number    <td>: {{ (employees | async)?.empMob}}</td></tr>
+      <tr>Employ date of joining  <td>: {{ (employees | async)?.empDoj}}</td></tr>
+      <tr>Employ leave balance    <td>: {{ (employees | async)?.empLeavbal}}</td></tr>
+      <tr>Employ manager id       <td>: {{ (employees | async)?.empMgrid}}</td></tr>
+    </table>

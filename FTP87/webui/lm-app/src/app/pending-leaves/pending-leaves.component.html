@@ -1,0 +1,90 @@
+<style>
+    table{
+      font-family:Palatino Linotype;
+
+    }
+    h1{
+      font-family:Palatino Linotype;
+
+    }
+    .button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+    </style>
+<h2 align= center >
+  Pending leave details
+</h2>
+
+<div ><h3 *ngIf = "mp==4000 || mp== 5000">no record</h3> </div>
+<div *ngIf = "mp!=4000">
+<table border="5" align = "center" >
+
+<div *ngFor= "let user of employees | async">
+
+<div *ngIf= "user.empMgrid == empId1">
+  <th>Empid</th>
+  <th >Emp name</th>
+  <th>balance</th>
+  <td width="120">{{user.empId}}</td>
+  <td width="120">{{user.empName}}</td>
+  <td width="120">{{user.empLeavbal}}</td>
+
+  <table border ="3" align = "center" ><tr *ngFor= "let user1 of leavedetails | async" (click)="clickRow(user1,user)">
+      <div *ngIf= "user.empId == user1.empid">
+    <td width="120">
+        {{user1.leaveid}}
+      </td>
+      <td width="120">
+        {{user1.empid}}
+      </td>
+      <td width="120">
+        {{user1.leavesdate}}
+      </td>
+      <td width="120">
+        {{user1.leaveedate}}
+      </td>
+      <td width="120">
+        {{user1.leavendays}}
+      </td>
+      <td width="120">
+        {{user1.leavetype}}
+      </td>
+      <td width="120">
+        {{user1.leavestatus}}
+      </td>
+      <td width="120">
+        {{user1.leavereason}}
+      </td>
+      <td width="120">
+        {{user1.leaveappliedon}}
+      </td>
+      <td width="120">
+        {{user1.leavemanagercomm}}
+      </td>
+</div>
+  </tr>
+</table>
+  </div>
+</div>
+</table>
+
+<div align="center" *ngIf="showButton">
+    <input type="button" (click)="doApproveDeny()" value="Approve/Deny" class="button">
+    </div>
+       <div align="center" *ngIf="!showButton">
+       <input type="button" value="Approve/Deny" disabled="disabled" class="button">
+       </div>
+       <div align="center" >
+          <button align="center" (click)="cancel()" class="button">Cancel</button>
+          </div>
+
+    </div>

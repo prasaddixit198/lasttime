@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: rgb(3, 7, 53);
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 50%;
+  height: 400px; /* only for demonstration, should be removed */
+  background: rgb(133, 196, 238);
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 50%;
+  background-color: #cbeaf0;
+  height: 400px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: rgba(169, 211, 250, 0.897);
+  padding: 50px;
+  text-align: center;
+  color: rgb(37, 2, 4);
+}
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+f1 {
+  background-color: rgba(3, 0, 0, 0.356);
+  padding: 50px;
+  text-align: center;
+  color: white;
+}
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+/* @media (max-width: 800px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+} */
+</style>
+</head>
+<body>
+
+<header>
+  <h2>LEAVE MANAGEMENT SYSTEM</h2>
+</header>
+
+<section>
+  <nav>
+        <app-employ-show></app-employ-show>
+  </nav>
+
+  <article>
+    <app-manager-show></app-manager-show>
+  </article>
+</section>
+
+<footer>
+ <app-emp-his></app-emp-his>
+ <input type = "button" class="button" value= "New Application"  (click) ="applyLeave()" />
+ <input type = "button" class="button" value= "Cancel"  (click) ="cancel()" />
+
+
+   <app-pending-leaves></app-pending-leaves>
+
+
+
+</footer>
+
+<!-- <f1>
+  <app-pending-leaves></app-pending-leaves>
+</f1> -->
+
+</body>
+</html>

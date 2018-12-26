@@ -1,0 +1,31 @@
+<style>
+    table{
+      font-family:Palatino Linotype;
+
+    }
+    h1{
+      font-family:Palatino Linotype;
+
+    }
+    </style>
+<h2> Manager Details
+</h2>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<div *ngIf= "empMgrid!=0">
+    <table  border="4" class="table table-striped" >
+        <tr>Manager no <td>: {{ (employees | async)?.empId}}</td></tr>
+        <tr>Manager name<td>: {{ (employees | async)?.empName}}</td></tr>
+       <tr>Manager email            <td>: {{ (employees | async)?.empEmail}}</td></tr>
+       <tr>Manager mobile number    <td>: {{ (employees | async)?.empMob}}</td></tr>
+     </table>
+</div>
+<div *ngIf= "empMgrid==0">
+  <h1 style="color:rgb(255, 81, 0)" align=center>NO MANAGER</h1>
+</div>
+
+
+

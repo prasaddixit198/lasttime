@@ -1,0 +1,61 @@
+<style>
+    table {
+      font-family:Palatino Linotype;
+    }
+    th{
+      color:white;
+    }
+    </style>
+  
+  <h1 align ="center">
+    Employees works!
+  </h1>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <input align ="center" [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox">
+  <table align ="center" class="table table-striped">
+    <tr>
+      <th  style="background-color: rgb(2, 18, 29);">ID</th>
+      <th  style="background-color:rgb(2, 18, 29);">Name</th>
+      <th style="background-color:rgb(2, 18, 29);">Department</th>
+      <th  style="background-color:rgb(2, 18, 29);">Email</th>
+      <th  style="background-color:rgb(2, 18, 29);">Mobile</th>
+      <th  style="background-color:rgb(2, 18, 29);">DOJ</th>
+      <th  style="background-color:rgb(2, 18, 29);">leave bal</th>
+      <th  style="background-color:rgb(2, 18, 29);">manager id</th>
+    </tr>
+    <tr *ngFor= "let user of employees | async | grdFilter: {empId: searchText, empName:searchText,  empDept: searchText}; let i=index;">
+  
+  
+      <td style="background-color:rgb(203, 234, 255);">
+        {{user.empId}}
+      </td>
+      <td style="background-color:rgb(203, 234, 255);">
+        {{user.empName}}
+      </td>
+      <td style="background-color:rgb(203, 234, 255);">
+        {{user.empDept}}
+      </td>
+      <td style="background-color:rgb(203, 234, 255);">
+        {{user.empEmail}}
+      </td>
+      <td style="background-color:rgb(203, 234, 255);">
+        {{user.empMob}}
+      </td>
+      <td style="background-color:rgb(203, 234, 255);">
+        {{user.empDoj}}
+      </td>
+      <td style="background-color:rgb(203, 234, 255);">
+        {{user.empLeavbal}}
+      </td>
+      <td style="background-color:rgb(203, 234, 255);">
+        {{user.empMgrid}}
+      </td>
+       <input type = "button" value="show" (click)= "show(user.empId, user.empMgrid, user.empName)" />
+      <!-- <button style="width:auto;" (click)= "show(user.empId, user.empMgrid)" >Login</button> -->
+    </tr>
+  </table>
